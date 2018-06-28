@@ -1,1 +1,247 @@
-Hello World
+<html>
+button.menuToggle +
+
+div.menu
+  div.items
+    a.active(href="#") Home
+    a(href="#") Projects
+    a(href="#") Resume
+    a(href="#") About
+
+div.wrapper
+
+  //canvas.background#background_canvas
+  
+  div.front__text
+    h1 Kaavya Antony
+  
+  div.front__social
+    a.link(href="https://github.com/axelrindle")
+      i.fa.fa-github
+      span.only__big GitHub
+    a.link(href="https://codepen.io/axelrindle")
+      i.fa.fa-codepen
+      span.only__big CodePen
+    a.link(href="https://twitter.com/axelrindle")
+      i.fa.fa-envelope
+      span.only__big Mail
+      
+      </html>
+      // -------------------------------
+//  Variables
+// -------------------------------
+$background: #37385F
+$text_color: #D7D7EF
+$social_border: 1px solid transparentize($text_color, .75)
+
+
+// -------------------------------
+//  Mixins
+// -------------------------------
+=transition($duration)
+  transition: all $duration cubic-bezier(0.42, 0, 0.58, 1)
+
+
+// -------------------------------
+//  Basic Stuff
+// -------------------------------
+*
+  outline: none
+
+html, body
+  height: 100%
+  width: 100%
+  background-color: $background
+  color: $text_color
+
+a, a:link, a:visited
+  color: $text_color
+  text-decoration: none
+
+//h1, h2, a, span
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, .5)
+
+// -------------------------------
+//  Site Layout / Design
+// -------------------------------
+button.menuToggle
+  position: absolute
+  right: 20px
+  top: 20px
+  z-index: 20
+  
+  width: 40px
+  height: 40px
+  border-radius: 40px
+  
+  background: $text_color
+  border: none
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
+  cursor: pointer
+  
+  font-size: 25px
+  font-weight: bold
+  color: $background
+  
+  +transition(200ms)
+
+div.menu
+  position: absolute
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  z-index: 10
+  
+  display: none
+  opacity: 0
+  background-color: transparentize(black, .15)
+  
+  div.items
+    height: 100%
+    
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    align-items: center
+    
+    a
+      font-weight: bold
+      font-size: 35px
+      
+      margin: 10px
+      +transition(100ms)
+      
+      cursor: pointer
+      
+      &.active
+        border-bottom: 3px solid $text_color
+      
+      &:hover
+        color: #5CAAEF
+        border-color: #5CAAEF
+
+canvas.background
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  z-index: -10
+      
+div.wrapper
+  height: 100%
+  width: 100%
+  display: flex
+  flex-flow: column nowrap
+  
+  div.front__text
+    flex: 1 0 auto
+    
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    align-items: center
+    
+    +transition(150ms)
+
+    h1, h2
+      margin: 10px
+      text-align: center
+
+    h1
+      font-size: 100px
+
+    h2
+      font-size: 40px
+      
+  .front__social
+    display: flex
+    flex-flow: row wrap
+    
+    border-top: $social_border
+    
+    a.link
+      flex: 1 0 auto
+      padding: 20px
+      
+      display: flex
+      align-items: center
+      justify-content: center
+      
+      +transition(100ms)
+      
+      span
+        margin-left: 10px
+        font-size: 18px
+        
+      i
+        font-size: 22px
+      
+      &:hover
+        background-color: $text_color
+        color: $background
+    
+      &:not(:last-child)
+        border-right: $social_border
+
+
+// -------------------------------
+//  Helpers
+// -------------------------------
+button.menuToggle.open
+  transform: rotateZ(45deg)
+  
+.blurred
+  +transition(50ms)
+  filter: blur(5px)
+
+// -------------------------------
+//  Responsive Stuff
+// -------------------------------
+.only__small
+  display: none
+      
+@media screen and(max-width: 600px)
+  
+  .only__big
+    display: none
+    
+  .only__small
+    display: block
+
+
+    # background gradients
+###
+granimInstance = new Granim(
+  element: '#background_canvas'
+  name: 'basic-gradient'
+  direction: 'diagonal'
+  opacity: [1, 1]
+  isPausedWhenNotInView: true
+  states: 'default-state': gradients: [
+    ['#37385F', '#6E48AA']
+    ['#AA076B', '#61045F']
+  ])
+###
+
+# menu handler
+$('.menuToggle').click ->
+  $(this).toggleClass 'open'
+  $('.wrapper').toggleClass 'blurred'
+  
+  if $(this).is '.open'
+    $('.menu').css "display": "block"
+    $('.menu').animate "opacity": 1, 100
+  else
+    $('.menu').animate "opacity": 0, 100, ->
+      $('.menu').css "display": "none"
+      
+# escape handler
+$("body").keyup (e) ->
+  if e.keyCode is 27
+    if $('.menuToggle').is '.open'
+      $(this).toggleClass 'open'
+      $('.wrapper').toggleClass 'blurred'
+      $('.menu').animate "opacity": 0, 100, ->
+        $('.menu').css "display": "none"
