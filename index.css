@@ -3,9 +3,9 @@
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 html {
 	font-family: Georgia, Times, "Times New Roman", serif;
-  -ms-text-size-adjust:100%;
-  -webkit-text-size adjust:100%
-  background-color:#870000;
+ 	-ms-text-size-adjust:100%;
+ 	-webkit-text-size adjust:100%
+	background-color:#870000;
 }
 
 body {
@@ -14,3 +14,4 @@ body {
 
 }
 
+* {background-color: maroon}
