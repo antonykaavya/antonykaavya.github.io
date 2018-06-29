@@ -19,10 +19,5 @@ body {
 h1,h2 {
     text-align: center;
     text-transform: uppercase;
-    color: #4CAF50;
-}
-
-p {
-    text-align: center;
-    letter-spacing: 3px;
+    color: white;
 }
