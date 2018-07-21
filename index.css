@@ -4,12 +4,12 @@
 html {
 	font-family: Georgia, Times, "Times New Roman", serif;
  	-ms-text-size-adjust:100%;
- 	-webkit-text-size adjust:100%
+ 	-webkit-text-size adjust:100%; 
 	background-color:#870000;
 }
 
 body {
-	margin:0
+	margin:0; 
 	background-color:#870000;
 
 }
