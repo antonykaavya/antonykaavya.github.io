@@ -19,7 +19,7 @@ body {
 h1,h2 {
     text-align: center;
     text-transform: uppercase;
-    color: #F2E5D2;
+    color: #fff;
 }
 
 .center{
@@ -39,7 +39,7 @@ h1,h2 {
   border-radius:4px;
   position:relative;
   border:none;
-  background:#F2E5D2;
+  background:#fff;
   font-family: Georgia, Times, "Times New Roman", serif; 
   width: 200px;
   height: 50px;
