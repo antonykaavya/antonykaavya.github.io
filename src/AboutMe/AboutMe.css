@@ -1,0 +1,11 @@
+.about_me_text {
+    color: #EEE2DC;
+    font-size: 30px;
+    width: 120%;
+}
+
+.about_me_headshot {
+    border-radius: 170px;
+    height: 100%;
+    width: 350px;
+}

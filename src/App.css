@@ -1,0 +1,41 @@
+html, body {
+  background-color: #AC3B61;
+  font-family: 'Rozha One', serif;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: #EEE2DC;
+  z-index: 0;
+}
+
+.right {
+  right: 0;
+  background-color: #123C69;
+  z-index: 0;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.center {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  height:50px;
+}
